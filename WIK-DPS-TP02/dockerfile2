@@ -1,0 +1,13 @@
+FROM rust AS builder
+WORKDIR /App
+COPY ./Cargo.toml .
+COPY ./src ./src/
+CMD ["cargo","build"]
+
+FROM rust:slim
+WORKDIR /App
+COPY --from=builder /App/ .
+RUN useradd -r tp2user && chown -R tp2user /App
+USER tp2user
+
+CMD ["cargo", "run"]

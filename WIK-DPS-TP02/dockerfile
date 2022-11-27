@@ -1,0 +1,7 @@
+FROM rust:slim
+COPY . /App
+RUN useradd -ms /bin/bash tp2user && \
+    chown -R tp2user:tp2user /App
+USER tp2user
+WORKDIR /App
+ENTRYPOINT cargo run 
