@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test3
+  labels:
+    name: api
+
+spec:
+  replicas: 4
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+
+  selector:
+    matchLabels:
+      name: api
+
+  template:
+    metadata:
+      labels:
+        name: api
+
+    spec:
+      containers:
+        - name: api
+          image: registry.cluster.wik.cloud/public/echo
+          ports:
+            - containerPort: 8080
