@@ -5,8 +5,9 @@ Serveur web développé en rust en utilisant le moins de dépendances possible. 
 ## lancer le projet
 
 - Voir tp précédent
-- `kubectl apply -f .\pod.yaml `
-- `kubectl port-forward pods/my-nginx-pod 8080:8080`
+- `kubectl apply -f .\ingress.yaml `
+- `kubectl tunnel`
+- Modification du fichier host (127.0.0.1 domaine.wik.tp04)
 
 ## Vérification
 
@@ -15,3 +16,5 @@ Benjamin@DESKTOP-ON7BJGL MINGW64 ~/Documents/ynov B3/Devops/WIK-DPS-TP04 (main)
 $ curl localhost:8080/ping
 {"host":"localhost:8080","user-agent":"curl/7.71.1","accept":"*/*"}
 ```
+
+![](https://i.imgur.com/B8vDTKo.png)
