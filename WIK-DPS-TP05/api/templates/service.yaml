@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test4
+  labels:
+    name: api-service
+
+spec:
+  selector:
+    name: api
+
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
